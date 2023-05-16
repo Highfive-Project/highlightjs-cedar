@@ -1,0 +1,19 @@
+{
+  "name": "highlightjs-cedar",
+  "version": "1.2.1",
+  "description": "",
+  "main": "src/cedar.js",
+  "scripts": {
+    "build": "webpack --mode=production",
+    "test": "jest"
+  },
+  "author": "jasmaa",
+  "license": "MIT",
+  "devDependencies": {
+    "highlight.js": "^11.5.1",
+    "jest": "^28.1.1",
+    "uglifyjs-webpack-plugin": "^2.2.0",
+    "webpack": "^5.73.0",
+    "webpack-cli": "^4.10.0"
+  }
+}

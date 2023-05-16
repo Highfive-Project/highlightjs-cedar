@@ -1,0 +1,6 @@
+.github
+test
+dist
+src/standalone.js
+*.tgz
+examples
