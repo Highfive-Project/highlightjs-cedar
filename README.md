@@ -17,7 +17,7 @@ Include in HTML page:
 ```html
 <pre>
   <code class="language-cedar">
-    Smithy code...
+    Cedar code...
   </code>
 </pre>
 ...
@@ -25,7 +25,7 @@ Include in HTML page:
 <script src="path/to/highlight.min.js"></script>
 <script src="path/to/hljs-cedar.min.js"></script>
 <script>
-  hljs.registerLanguage("cedar", hljsSmithy);
+  hljs.registerLanguage("cedar", hljsCedar);
   hljs.highlightAll();
 </script>
 ```
@@ -46,24 +46,31 @@ const hljs = require("highlight.js");
 const hljsSmithy = require("highlightjs-cedar");
 
 const code = `
-namespace example.weather
+// Users can edit their own info, admins can edit anyone's info
+permit (
+    principal,
+    action,
+    resource in HealthCareApp::InfoType::"accountinfo"
+)
+when {
+    resource.subject == principal ||
+    principal in HealthCareApp::Role::"admin"
+};
 
-service Weather {
-    version: "2006-03-01",
-    resources: [City],
-    operations: [GetCurrentTime]
-}
-
-resource City {
-    identifiers: { cityId: CityId },
-    read: GetCity,
-    list: ListCities,
-    resources: [Forecast],
-}
+//A patient may create an appointment for themselves, or an administrator can do it
+permit (
+    principal,
+    action == HealthCareApp::Action::"createAppointment",
+    resource
+)
+when {
+    (context.referrer in HealthCareApp::Role::"doctor"  && resource.patient == principal) ||
+    principal in HealthCareApp::Role::"admin"
+};
 `;
 
-hljs.registerLanguage("smithy", hljsSmithy);
+hljs.registerLanguage("cedar", hljsCedar);
 const result = hljs.highlight(code, {
-  language: "smithy",
+  language: "cedar",
 });
 ```
