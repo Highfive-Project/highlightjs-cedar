@@ -1,0 +1,25 @@
+name: Publish example demo
+on:
+  push:
+    branches:
+      - main
+
+permissions:
+  contents: write
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v3
+      - uses: actions/setup-node@v3
+        with:
+          node-version: "16"
+      - run: yarn install --immutable --immutable-cache --check-cache
+      - run: yarn build
+      - run: cp dist/hljs-cedar.min.js examples/demo/hljs-cedar.min.js
+      - name: Deploy example
+        uses: JamesIves/github-pages-deploy-action@v4
+        with:
+          folder: ./examples/demo
+          single-commit: true

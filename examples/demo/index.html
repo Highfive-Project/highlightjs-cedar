@@ -1,8 +1,12 @@
-<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.8.0/styles/default.min.css" />
-<script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.8.0/highlight.min.js"></script>
-<script src="../../dist/hljs-cedar.min.js"></script>
+<html>
 
-<pre>
+<head>
+  <title>highlightjs-cedar Example</title>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.8.0/styles/default.min.css" />
+</head>
+
+<body>
+  <pre>
   <code class="language-cedar">
     // Users can edit their own info, admins can edit anyone's info
     permit (
@@ -27,8 +31,13 @@
     };
   </code>
 </pre>
+</body>
 
+<script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.8.0/highlight.min.js"></script>
+<script src="./hljs-cedar.min.js"></script>
 <script>
   hljs.registerLanguage("cedar", hljsCedar);
   hljs.highlightAll();
 </script>
+
+</html>
