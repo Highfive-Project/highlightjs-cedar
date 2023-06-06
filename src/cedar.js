@@ -8,23 +8,33 @@ Category: web
 module.exports = function (hljs) {
   const KEYWORD = {
     match:
-      /forbid|permit|def|let|else|then|if|has|advice|is|where|in|unless|when|for/,
+      /(?:forbid|permit|def|let|else|then|if|has|advice|is|where|in|unless|when|for)\b/,
     scope: "keyword",
   };
 
+  const TEMPLATE = {
+    match: /(?:\?resource|\?principal)\b/,
+    scope: "built_in",
+  };
+
   const SPECIAL_VARIABLE = {
-    match: /resource|principal|context|resource|action|this/,
+    match: /(?:resource|principal|context|resource|action|this)\b/,
     scope: "variable.language",
   };
 
   const LITERAL = {
-    match: /true|false/,
+    match: /(?:true|false)\b/,
     scope: "literal",
   };
 
-  const SCOPE_RESOLUTION = {
-    match: /::/,
-    scope: "meta",
+  const OPERATOR = {
+    match: /(?:::|==|!=|>|<|>=|<=|&&|\|\|)/,
+    scope: "operator",
+  };
+
+  const PUNCTUATION = {
+    match: /(?:,|;|\.|\[|\]|\(|\)|{|})/,
+    scope: "punctuation",
   };
 
   return {
@@ -32,7 +42,9 @@ module.exports = function (hljs) {
       KEYWORD,
       LITERAL,
       SPECIAL_VARIABLE,
-      SCOPE_RESOLUTION,
+      TEMPLATE,
+      OPERATOR,
+      PUNCTUATION,
       hljs.NUMBER_MODE,
       hljs.QUOTE_STRING_MODE,
       hljs.C_LINE_COMMENT_MODE,

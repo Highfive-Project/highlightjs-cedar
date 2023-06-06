@@ -1,0 +1,87 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Cedar syntax highlighting highlights syntax for basic/attributes-1.txt 1`] = `
+"<span class=\\"hljs-keyword\\">permit</span><span class=\\"hljs-punctuation\\">(</span>
+  <span class=\\"hljs-variable language_\\">principal</span><span class=\\"hljs-punctuation\\">,</span>
+  <span class=\\"hljs-variable language_\\">action</span> <span class=\\"hljs-operator\\">==</span> Action<span class=\\"hljs-operator\\">::</span><span class=\\"hljs-string\\">&quot;view&quot;</span><span class=\\"hljs-punctuation\\">,</span>
+  <span class=\\"hljs-variable language_\\">resource</span>
+<span class=\\"hljs-punctuation\\">)</span>
+<span class=\\"hljs-keyword\\">when</span> <span class=\\"hljs-punctuation\\">{</span><span class=\\"hljs-variable language_\\">resource</span><span class=\\"hljs-punctuation\\">.</span>accessLevel <span class=\\"hljs-operator\\">==</span> <span class=\\"hljs-string\\">&quot;public&quot;</span> <span class=\\"hljs-operator\\">&amp;&amp;</span> <span class=\\"hljs-variable language_\\">principal</span><span class=\\"hljs-punctuation\\">.</span>location <span class=\\"hljs-operator\\">==</span> <span class=\\"hljs-string\\">&quot;USA&quot;</span><span class=\\"hljs-punctuation\\">}</span><span class=\\"hljs-punctuation\\">;</span>"
+`;
+
+exports[`Cedar syntax highlighting highlights syntax for basic/attributes-2.txt 1`] = `
+"<span class=\\"hljs-keyword\\">permit</span><span class=\\"hljs-punctuation\\">(</span>
+  <span class=\\"hljs-variable language_\\">principal</span><span class=\\"hljs-punctuation\\">,</span> 
+  <span class=\\"hljs-variable language_\\">action</span> <span class=\\"hljs-keyword\\">in</span> <span class=\\"hljs-punctuation\\">[</span>Action<span class=\\"hljs-operator\\">::</span><span class=\\"hljs-string\\">&quot;view&quot;</span><span class=\\"hljs-punctuation\\">,</span> Action<span class=\\"hljs-operator\\">::</span><span class=\\"hljs-string\\">&quot;edit&quot;</span><span class=\\"hljs-punctuation\\">,</span> Action<span class=\\"hljs-operator\\">::</span><span class=\\"hljs-string\\">&quot;delete&quot;</span><span class=\\"hljs-punctuation\\">]</span><span class=\\"hljs-punctuation\\">,</span> 
+  <span class=\\"hljs-variable language_\\">resource</span> 
+<span class=\\"hljs-punctuation\\">)</span>
+<span class=\\"hljs-keyword\\">when</span> <span class=\\"hljs-punctuation\\">{</span>
+  <span class=\\"hljs-variable language_\\">resource</span><span class=\\"hljs-punctuation\\">.</span>owner <span class=\\"hljs-operator\\">==</span> <span class=\\"hljs-variable language_\\">principal</span><span class=\\"hljs-punctuation\\">.</span>id
+<span class=\\"hljs-punctuation\\">}</span><span class=\\"hljs-punctuation\\">;</span>
+"
+`;
+
+exports[`Cedar syntax highlighting highlights syntax for basic/context.txt 1`] = `
+"<span class=\\"hljs-keyword\\">permit</span><span class=\\"hljs-punctuation\\">(</span>
+    <span class=\\"hljs-variable language_\\">principal</span> <span class=\\"hljs-keyword\\">in</span> User<span class=\\"hljs-operator\\">::</span><span class=\\"hljs-string\\">&quot;alice&quot;</span><span class=\\"hljs-punctuation\\">,</span> 
+    <span class=\\"hljs-variable language_\\">action</span> <span class=\\"hljs-keyword\\">in</span> <span class=\\"hljs-punctuation\\">[</span>Action<span class=\\"hljs-operator\\">::</span><span class=\\"hljs-string\\">&quot;update&quot;</span><span class=\\"hljs-punctuation\\">,</span> Action<span class=\\"hljs-operator\\">::</span><span class=\\"hljs-string\\">&quot;delete&quot;</span><span class=\\"hljs-punctuation\\">]</span><span class=\\"hljs-punctuation\\">,</span>
+    <span class=\\"hljs-variable language_\\">resource</span> <span class=\\"hljs-operator\\">==</span> Photo<span class=\\"hljs-operator\\">::</span><span class=\\"hljs-string\\">&quot;flower.jpg&quot;</span><span class=\\"hljs-punctuation\\">)</span>
+<span class=\\"hljs-keyword\\">when</span> <span class=\\"hljs-punctuation\\">{</span>
+    <span class=\\"hljs-variable language_\\">context</span><span class=\\"hljs-punctuation\\">.</span>mfa_authenticated <span class=\\"hljs-operator\\">==</span> <span class=\\"hljs-literal\\">true</span> <span class=\\"hljs-operator\\">&amp;&amp;</span>
+    <span class=\\"hljs-variable language_\\">context</span><span class=\\"hljs-punctuation\\">.</span>request_client_ip <span class=\\"hljs-operator\\">==</span> <span class=\\"hljs-string\\">&quot;222.222.222.222&quot;</span>
+<span class=\\"hljs-punctuation\\">}</span><span class=\\"hljs-punctuation\\">;</span>"
+`;
+
+exports[`Cedar syntax highlighting highlights syntax for basic/groups.txt 1`] = `
+"<span class=\\"hljs-keyword\\">permit</span><span class=\\"hljs-punctuation\\">(</span>
+  <span class=\\"hljs-variable language_\\">principal</span> <span class=\\"hljs-keyword\\">in</span> Role<span class=\\"hljs-operator\\">::</span><span class=\\"hljs-string\\">&quot;vacationPhotoJudges&quot;</span><span class=\\"hljs-punctuation\\">,</span>
+  <span class=\\"hljs-variable language_\\">action</span> <span class=\\"hljs-operator\\">==</span> Action<span class=\\"hljs-operator\\">::</span><span class=\\"hljs-string\\">&quot;view&quot;</span><span class=\\"hljs-punctuation\\">,</span>
+  <span class=\\"hljs-variable language_\\">resource</span> <span class=\\"hljs-operator\\">==</span> Photo<span class=\\"hljs-operator\\">::</span><span class=\\"hljs-string\\">&quot;vacationPhoto94.jpg&quot;</span>
+<span class=\\"hljs-punctuation\\">)</span><span class=\\"hljs-punctuation\\">;</span>"
+`;
+
+exports[`Cedar syntax highlighting highlights syntax for basic/permit.txt 1`] = `
+"<span class=\\"hljs-keyword\\">permit</span><span class=\\"hljs-punctuation\\">(</span>
+  <span class=\\"hljs-variable language_\\">principal</span> <span class=\\"hljs-operator\\">==</span> User<span class=\\"hljs-operator\\">::</span><span class=\\"hljs-string\\">&quot;alice&quot;</span><span class=\\"hljs-punctuation\\">,</span> 
+  <span class=\\"hljs-variable language_\\">action</span>    <span class=\\"hljs-operator\\">==</span> Action<span class=\\"hljs-operator\\">::</span><span class=\\"hljs-string\\">&quot;update&quot;</span><span class=\\"hljs-punctuation\\">,</span> 
+  <span class=\\"hljs-variable language_\\">resource</span>  <span class=\\"hljs-operator\\">==</span> Photo<span class=\\"hljs-operator\\">::</span><span class=\\"hljs-string\\">&quot;VacationPhoto94.jpg&quot;</span>
+<span class=\\"hljs-punctuation\\">)</span><span class=\\"hljs-punctuation\\">;</span>"
+`;
+
+exports[`Cedar syntax highlighting highlights syntax for basic/permit-forbid.txt 1`] = `
+"<span class=\\"hljs-keyword\\">permit</span><span class=\\"hljs-punctuation\\">(</span>
+  <span class=\\"hljs-variable language_\\">principal</span> <span class=\\"hljs-operator\\">==</span> User<span class=\\"hljs-operator\\">::</span><span class=\\"hljs-string\\">&quot;alice&quot;</span><span class=\\"hljs-punctuation\\">,</span> 
+  <span class=\\"hljs-variable language_\\">action</span>    <span class=\\"hljs-operator\\">==</span> Action<span class=\\"hljs-operator\\">::</span><span class=\\"hljs-string\\">&quot;view&quot;</span><span class=\\"hljs-punctuation\\">,</span> 
+  <span class=\\"hljs-variable language_\\">resource</span>  <span class=\\"hljs-operator\\">==</span> Photo<span class=\\"hljs-operator\\">::</span><span class=\\"hljs-string\\">&quot;VacationPhoto94.jpg&quot;</span>
+<span class=\\"hljs-punctuation\\">)</span><span class=\\"hljs-punctuation\\">;</span>
+
+<span class=\\"hljs-keyword\\">forbid</span><span class=\\"hljs-punctuation\\">(</span>
+  <span class=\\"hljs-variable language_\\">principal</span> <span class=\\"hljs-operator\\">==</span> User<span class=\\"hljs-operator\\">::</span><span class=\\"hljs-string\\">&quot;alice&quot;</span><span class=\\"hljs-punctuation\\">,</span> 
+  <span class=\\"hljs-variable language_\\">action</span>    <span class=\\"hljs-operator\\">==</span> Action<span class=\\"hljs-operator\\">::</span><span class=\\"hljs-string\\">&quot;view&quot;</span><span class=\\"hljs-punctuation\\">,</span> 
+  <span class=\\"hljs-variable language_\\">resource</span>  <span class=\\"hljs-operator\\">==</span> Photo<span class=\\"hljs-operator\\">::</span><span class=\\"hljs-string\\">&quot;VacationPhoto94.jpg&quot;</span>
+<span class=\\"hljs-punctuation\\">)</span><span class=\\"hljs-punctuation\\">;</span>"
+`;
+
+exports[`Cedar syntax highlighting highlights syntax for basic/sets.txt 1`] = `
+"<span class=\\"hljs-keyword\\">permit</span><span class=\\"hljs-punctuation\\">(</span>
+  <span class=\\"hljs-variable language_\\">principal</span> <span class=\\"hljs-operator\\">==</span> User<span class=\\"hljs-operator\\">::</span><span class=\\"hljs-string\\">&quot;alice&quot;</span><span class=\\"hljs-punctuation\\">,</span> 
+  <span class=\\"hljs-variable language_\\">action</span> <span class=\\"hljs-keyword\\">in</span> <span class=\\"hljs-punctuation\\">[</span>Action<span class=\\"hljs-operator\\">::</span><span class=\\"hljs-string\\">&quot;view&quot;</span><span class=\\"hljs-punctuation\\">,</span> Action<span class=\\"hljs-operator\\">::</span><span class=\\"hljs-string\\">&quot;edit&quot;</span><span class=\\"hljs-punctuation\\">,</span> Action<span class=\\"hljs-operator\\">::</span><span class=\\"hljs-string\\">&quot;delete&quot;</span><span class=\\"hljs-punctuation\\">]</span><span class=\\"hljs-punctuation\\">,</span> 
+  <span class=\\"hljs-variable language_\\">resource</span> <span class=\\"hljs-operator\\">==</span> Photo<span class=\\"hljs-operator\\">::</span><span class=\\"hljs-string\\">&quot;VacationPhoto94.jpg&quot;</span>
+<span class=\\"hljs-punctuation\\">)</span><span class=\\"hljs-punctuation\\">;</span>"
+`;
+
+exports[`Cedar syntax highlighting highlights syntax for basic/templates.txt 1`] = `
+"<span class=\\"hljs-keyword\\">permit</span><span class=\\"hljs-punctuation\\">(</span>
+  <span class=\\"hljs-variable language_\\">principal</span> <span class=\\"hljs-operator\\">==</span> <span class=\\"hljs-built_in\\">?principal</span><span class=\\"hljs-punctuation\\">,</span> 
+  <span class=\\"hljs-variable language_\\">action</span> <span class=\\"hljs-keyword\\">in</span> <span class=\\"hljs-punctuation\\">[</span>Action<span class=\\"hljs-operator\\">::</span><span class=\\"hljs-string\\">&quot;readFile&quot;</span><span class=\\"hljs-punctuation\\">,</span> Action<span class=\\"hljs-operator\\">::</span><span class=\\"hljs-string\\">&quot;writeFile&quot;</span><span class=\\"hljs-punctuation\\">]</span> 
+  <span class=\\"hljs-variable language_\\">resource</span>  <span class=\\"hljs-operator\\">==</span> <span class=\\"hljs-built_in\\">?resource</span>
+<span class=\\"hljs-punctuation\\">)</span><span class=\\"hljs-punctuation\\">;</span>"
+`;
+
+exports[`Cedar syntax highlighting highlights syntax for basic/undefined-scopes.txt 1`] = `
+"<span class=\\"hljs-keyword\\">permit</span><span class=\\"hljs-punctuation\\">(</span>
+  <span class=\\"hljs-variable language_\\">principal</span><span class=\\"hljs-punctuation\\">,</span> 
+  <span class=\\"hljs-variable language_\\">action</span> <span class=\\"hljs-keyword\\">in</span> <span class=\\"hljs-punctuation\\">[</span>Action<span class=\\"hljs-operator\\">::</span><span class=\\"hljs-string\\">&quot;view&quot;</span><span class=\\"hljs-punctuation\\">,</span> Action<span class=\\"hljs-operator\\">::</span><span class=\\"hljs-string\\">&quot;edit&quot;</span><span class=\\"hljs-punctuation\\">,</span> Action<span class=\\"hljs-operator\\">::</span><span class=\\"hljs-string\\">&quot;delete&quot;</span><span class=\\"hljs-punctuation\\">]</span><span class=\\"hljs-punctuation\\">,</span> 
+  <span class=\\"hljs-variable language_\\">resource</span> <span class=\\"hljs-operator\\">==</span> Photo<span class=\\"hljs-operator\\">::</span><span class=\\"hljs-string\\">&quot;vacationPhoto.jpg&quot;</span>
+<span class=\\"hljs-punctuation\\">)</span><span class=\\"hljs-punctuation\\">;</span>"
+`;

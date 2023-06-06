@@ -1,0 +1,5 @@
+permit(
+  principal == ?principal, 
+  action in [Action::"readFile", Action::"writeFile"] 
+  resource  == ?resource
+);

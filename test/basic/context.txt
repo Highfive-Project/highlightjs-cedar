@@ -1,0 +1,8 @@
+permit(
+    principal in User::"alice", 
+    action in [Action::"update", Action::"delete"],
+    resource == Photo::"flower.jpg")
+when {
+    context.mfa_authenticated == true &&
+    context.request_client_ip == "222.222.222.222"
+};

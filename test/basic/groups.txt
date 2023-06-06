@@ -1,0 +1,5 @@
+permit(
+  principal in Role::"vacationPhotoJudges",
+  action == Action::"view",
+  resource == Photo::"vacationPhoto94.jpg"
+);

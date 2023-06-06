@@ -1,0 +1,6 @@
+permit(
+  principal,
+  action == Action::"view",
+  resource
+)
+when {resource.accessLevel == "public" && principal.location == "USA"};
