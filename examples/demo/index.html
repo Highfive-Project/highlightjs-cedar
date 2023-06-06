@@ -1,0 +1,34 @@
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.8.0/styles/default.min.css" />
+<script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.8.0/highlight.min.js"></script>
+<script src="../../dist/hljs-cedar.min.js"></script>
+
+<pre>
+  <code class="language-cedar">
+    // Users can edit their own info, admins can edit anyone's info
+    permit (
+        principal,
+        action,
+        resource in HealthCareApp::InfoType::"accountinfo"
+    )
+    when {
+        resource.subject == principal ||
+        principal in HealthCareApp::Role::"admin"
+    };
+
+    //A patient may create an appointment for themselves, or an administrator can do it
+    permit (
+        principal,
+        action == HealthCareApp::Action::"createAppointment",
+        resource
+    )
+    when {
+        (context.referrer in HealthCareApp::Role::"doctor"  && resource.patient == principal) ||
+        principal in HealthCareApp::Role::"admin"
+    };
+  </code>
+</pre>
+
+<script>
+  hljs.registerLanguage("cedar", hljsCedar);
+  hljs.highlightAll();
+</script>
