@@ -46,7 +46,7 @@ Import modules in Node:
 
 ```js
 const hljs = require("highlight.js");
-const hljsSmithy = require("highlightjs-cedar");
+const hljsCedar = require("highlightjs-cedar");
 
 const code = `
 // Users can edit their own info, admins can edit anyone's info
