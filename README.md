@@ -1,5 +1,8 @@
 # highlightjs-cedar
 
+[![npm version](https://img.shields.io/npm/v/highlightjs-cedar)](https://www.npmjs.com/highlightjs-cedar)
+[![build](https://img.shields.io/github/actions/workflow/status/jasmaa/highlightjs-cedar/build.yml)](https://github.com/jasmaa/highlightjs-cedar/actions)
+
 Highlight.js syntax for Cedar
 
 ## Use in browser
