@@ -6,6 +6,12 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ## [Unreleased]
 
+### Added
+- Add like operator
+
+### Removed
+- Remove def and let keywords
+
 ## [1.0.2] - 2023-06-06
 ### Updated
 - Fix readme

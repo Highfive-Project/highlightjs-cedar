@@ -40,6 +40,16 @@ exports[`Cedar syntax highlighting highlights syntax for basic/groups.txt 1`] = 
 <span class=\\"hljs-punctuation\\">)</span><span class=\\"hljs-punctuation\\">;</span>"
 `;
 
+exports[`Cedar syntax highlighting highlights syntax for basic/operators.txt 1`] = `
+"
+<span class=\\"hljs-keyword\\">forbid</span><span class=\\"hljs-punctuation\\">(</span><span class=\\"hljs-variable language_\\">principal</span><span class=\\"hljs-punctuation\\">,</span> <span class=\\"hljs-variable language_\\">action</span><span class=\\"hljs-punctuation\\">,</span> <span class=\\"hljs-variable language_\\">resource</span><span class=\\"hljs-punctuation\\">)</span>
+<span class=\\"hljs-keyword\\">when</span> <span class=\\"hljs-punctuation\\">{</span>
+    <span class=\\"hljs-operator\\">!</span><span class=\\"hljs-punctuation\\">(</span><span class=\\"hljs-variable language_\\">principal</span> <span class=\\"hljs-keyword\\">in</span> Group<span class=\\"hljs-operator\\">::</span><span class=\\"hljs-string\\">&quot;family&quot;</span><span class=\\"hljs-punctuation\\">)</span> <span class=\\"hljs-operator\\">&amp;&amp;</span>
+    <span class=\\"hljs-operator\\">ip</span><span class=\\"hljs-punctuation\\">(</span><span class=\\"hljs-string\\">&quot;192.168.0.1&quot;</span><span class=\\"hljs-punctuation\\">)</span><span class=\\"hljs-punctuation\\">.</span><span class=\\"hljs-operator\\">isInRange</span><span class=\\"hljs-punctuation\\">(</span><span class=\\"hljs-operator\\">ip</span><span class=\\"hljs-punctuation\\">(</span><span class=\\"hljs-string\\">&quot;192.168.0.1/24&quot;</span><span class=\\"hljs-punctuation\\">)</span><span class=\\"hljs-punctuation\\">)</span> <span class=\\"hljs-operator\\">&amp;&amp;</span>
+    <span class=\\"hljs-operator\\">decimal</span><span class=\\"hljs-punctuation\\">(</span><span class=\\"hljs-string\\">&quot;1.23&quot;</span><span class=\\"hljs-punctuation\\">)</span><span class=\\"hljs-punctuation\\">.</span><span class=\\"hljs-operator\\">lessThanOrEqual</span><span class=\\"hljs-punctuation\\">(</span><span class=\\"hljs-operator\\">decimal</span><span class=\\"hljs-punctuation\\">(</span><span class=\\"hljs-string\\">&quot;1.24&quot;</span><span class=\\"hljs-punctuation\\">)</span><span class=\\"hljs-punctuation\\">)</span>
+<span class=\\"hljs-punctuation\\">}</span><span class=\\"hljs-punctuation\\">;</span>"
+`;
+
 exports[`Cedar syntax highlighting highlights syntax for basic/permit.txt 1`] = `
 "<span class=\\"hljs-keyword\\">permit</span><span class=\\"hljs-punctuation\\">(</span>
   <span class=\\"hljs-variable language_\\">principal</span> <span class=\\"hljs-operator\\">==</span> User<span class=\\"hljs-operator\\">::</span><span class=\\"hljs-string\\">&quot;alice&quot;</span><span class=\\"hljs-punctuation\\">,</span> 

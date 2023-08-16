@@ -13,6 +13,7 @@ const filePaths = [
   "basic/groups.txt",
   "basic/context.txt",
   "basic/templates.txt",
+  "basic/operators.txt",
 ];
 
 describe("Cedar syntax highlighting", () => {
