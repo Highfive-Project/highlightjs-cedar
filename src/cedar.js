@@ -8,7 +8,7 @@ Category: web
 module.exports = function (hljs) {
   const KEYWORD = {
     match:
-      /(?:forbid|permit|def|let|else|then|if|has|advice|is|where|in|unless|when|for)\b/,
+      /\b(?:forbid|permit|else|then|if|has|advice|is|where|in|unless|when|for)\b/,
     scope: "keyword",
   };
 
@@ -18,17 +18,28 @@ module.exports = function (hljs) {
   };
 
   const SPECIAL_VARIABLE = {
-    match: /(?:resource|principal|context|resource|action|this)\b/,
+    match: /\b(?:resource|principal|context|resource|action|this)\b/,
     scope: "variable.language",
   };
 
   const LITERAL = {
-    match: /(?:true|false)\b/,
+    match: /\b(?:true|false)\b/,
     scope: "literal",
   };
 
   const OPERATOR = {
-    match: /(?:::|==|!=|>|<|>=|<=|&&|\|\|)/,
+    match: /(?:::|==|!=|>|<|>=|<=|&&|\|\||\+|-|\*|!|like)/,
+    scope: "operator",
+  };
+
+  const FUNCTION = {
+    match: /(ip|decimal)(?=\()/,
+    scope: "operator",
+  };
+
+  const DOT_OPERATOR = {
+    match:
+      /(?<=\.)(?:contains|containsAll|containsAny|lessThan|lessThanOrEqual|greaterThan|greaterThanOrEqual|isIpV4|isIpV6|isLoopback|isMulticast|isInRange)(?=\()/,
     scope: "operator",
   };
 
@@ -43,7 +54,9 @@ module.exports = function (hljs) {
       LITERAL,
       SPECIAL_VARIABLE,
       TEMPLATE,
+      FUNCTION,
       OPERATOR,
+      DOT_OPERATOR,
       PUNCTUATION,
       hljs.NUMBER_MODE,
       hljs.QUOTE_STRING_MODE,
