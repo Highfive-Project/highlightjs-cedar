@@ -7,7 +7,9 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 ## [Unreleased]
 
 ### Added
-- Add like operator
+- Add arithmetic, like, and dot operators. Add ip and decimal functions. See
+  also:
+  (https://docs.cedarpolicy.com/syntax-operators.html#string-operators-and-functions).
 
 ### Removed
 - Remove def and let keywords
