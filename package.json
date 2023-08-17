@@ -8,7 +8,7 @@
     "test": "prettier --check . && jest"
   },
   "author": "jasmaa",
-  "license": "MIT",
+  "license": "Apache-2.0",
   "devDependencies": {
     "highlight.js": "^11.8.0",
     "jest": "^28.1.1",
