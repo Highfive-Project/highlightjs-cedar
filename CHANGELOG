@@ -6,10 +6,15 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ## [Unreleased]
 
+
+## [1.1.0] - 2023-08-16
 ### Added
 - Add arithmetic, like, and dot operators. Add ip and decimal functions. See
   also:
   (https://docs.cedarpolicy.com/syntax-operators.html#string-operators-and-functions).
+
+### Updated
+- Relicense to Apache 2.0
 
 ### Removed
 - Remove def and let keywords
