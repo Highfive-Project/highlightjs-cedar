@@ -1,13 +1,16 @@
 <html>
   <head>
     <title>highlightjs-cedar Example</title>
-    <link
-      rel="stylesheet"
-      href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.8.0/styles/default.min.css"
-    />
+    <link id="theme-stylesheet" rel="stylesheet" />
   </head>
 
   <body>
+    <select id="theme-select">
+      <option value="default">default</option>
+      <option value="dark">dark</option>
+      <option value="vs">vs</option>
+      <option value="github">github</option>
+    </select>
     <pre>
   <code class="language-cedar">
     // Users can edit their own info, admins can edit anyone's info
@@ -21,14 +24,14 @@
         principal in HealthCareApp::Role::"admin"
     };
 
-    //A patient may create an appointment for themselves, or an administrator can do it
+    // A patient may create an appointment for themselves, or an administrator can do it
     permit (
         principal,
         action == HealthCareApp::Action::"createAppointment",
         resource
     )
     when {
-        (context.referrer in HealthCareApp::Role::"doctor"  && resource.patient == principal) ||
+        (context.referrer in HealthCareApp::Role::"doctor" && resource.patient == principal) ||
         principal in HealthCareApp::Role::"admin"
     };
   </code>
@@ -40,5 +43,31 @@
   <script>
     hljs.registerLanguage("cedar", hljsCedar);
     hljs.highlightAll();
+
+    const buildStylesheetHrefLookup = (el) => {
+      const lookup = new Map();
+      for (const optionEl of el.options) {
+        const slug = optionEl.value;
+        lookup.set(
+          slug,
+          `https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.8.0/styles/${slug}.min.css`
+        );
+      }
+      return lookup;
+    };
+
+    const setTheme = (slug, stylesheetHrefLookup) => {
+      const href = stylesheetHrefLookup.get(slug);
+      if (href) {
+        document.getElementById("theme-stylesheet").setAttribute("href", href);
+      }
+    };
+
+    const themeSelectEl = document.getElementById("theme-select");
+    const stylesheetHrefLookup = buildStylesheetHrefLookup(themeSelectEl);
+    themeSelectEl.onchange = (e) => {
+      setTheme(e.target.value, stylesheetHrefLookup);
+    };
+    setTheme(themeSelectEl.value, stylesheetHrefLookup);
   </script>
 </html>
