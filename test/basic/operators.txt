@@ -1,4 +1,3 @@
-
 forbid(principal, action, resource)
 when {
     !(principal in Group::"family") &&

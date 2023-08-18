@@ -8,13 +8,13 @@ Category: web
 module.exports = function (hljs) {
   const KEYWORD = {
     match:
-      /\b(?:forbid|permit|else|then|if|has|advice|is|where|in|unless|when|for)\b/,
+      /\b(?:forbid|permit|else|then|if|has|advice|is|where|in|unless|when|for|like)\b/,
     scope: "keyword",
   };
 
   const TEMPLATE = {
     match: /(?:\?resource|\?principal)\b/,
-    scope: "built_in",
+    scope: "variable.language",
   };
 
   const SPECIAL_VARIABLE = {
@@ -28,13 +28,13 @@ module.exports = function (hljs) {
   };
 
   const OPERATOR = {
-    match: /(?:::|==|!=|>|<|>=|<=|&&|\|\||\+|-|\*|!|like)/,
+    match: /(?:::|==|!=|>|<|>=|<=|&&|\|\||\+|-|\*|!)/,
     scope: "operator",
   };
 
   const FUNCTION = {
     match: /(ip|decimal)(?=\()/,
-    scope: "operator",
+    scope: "title.function",
   };
 
   const DOT_OPERATOR = {
